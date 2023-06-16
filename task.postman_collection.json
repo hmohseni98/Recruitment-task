@@ -1,0 +1,434 @@
+{
+	"info": {
+		"_postman_id": "c17145bf-c791-43d1-83de-c9505d0526e6",
+		"name": "task",
+		"description": "Recruitment task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20422817"
+	},
+	"item": [
+		{
+			"name": "review service",
+			"item": [
+				{
+					"name": "comment controller",
+					"item": [
+						{
+							"name": "get last tree comments",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/comment/getLastTreeComments?productId=1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"comment",
+										"getLastTreeComments"
+									],
+									"query": [
+										{
+											"key": "productId",
+											"value": "1",
+											"description": "ID of the desired product"
+										}
+									]
+								},
+								"description": "List the three most recent comments for a particular product"
+							},
+							"response": []
+						},
+						{
+							"name": "get count of total comments",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/comment/getCountOfTotalComments?productId=1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"comment",
+										"getCountOfTotalComments"
+									],
+									"query": [
+										{
+											"key": "productId",
+											"value": "1",
+											"description": "ID of the desired product"
+										}
+									]
+								},
+								"description": "The number of all comments left for a particular product"
+							},
+							"response": []
+						},
+						{
+							"name": "get unckecked comments",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/comment/getUnCheckedComments",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"comment",
+										"getUnCheckedComments"
+									]
+								},
+								"description": "Unchecked comments list of all products"
+							},
+							"response": []
+						},
+						{
+							"name": "change approval status",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/comment/changeApprovalStatus?commentId=1&approvalStatus=true",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"comment",
+										"changeApprovalStatus"
+									],
+									"query": [
+										{
+											"key": "commentId",
+											"value": "1",
+											"description": "ID of the desired comment"
+										},
+										{
+											"key": "approvalStatus",
+											"value": "true",
+											"description": "Possible modes: true or false"
+										}
+									]
+								},
+								"description": "Change the approval status of a particular comment"
+							},
+							"response": []
+						}
+					],
+					"description": "List end-points related to the comment service"
+				},
+				{
+					"name": "product controller",
+					"item": [
+						{
+							"name": "set visibility mode",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/product/setVisibilityMode?productId=3&isVisible=true",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"product",
+										"setVisibilityMode"
+									],
+									"query": [
+										{
+											"key": "productId",
+											"value": "3",
+											"description": "ID of the desired product"
+										},
+										{
+											"key": "isVisible",
+											"value": "true",
+											"description": "possible modes: true or false"
+										}
+									]
+								},
+								"description": "choose whether or not to display a product"
+							},
+							"response": []
+						},
+						{
+							"name": "set review availability",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/product/setReviewAvailability?productId=3&reviewAvailability=ONLY_COMMENT",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"product",
+										"setReviewAvailability"
+									],
+									"query": [
+										{
+											"key": "productId",
+											"value": "3",
+											"description": "ID of the desired product"
+										},
+										{
+											"key": "reviewAvailability",
+											"value": "ONLY_COMMENT",
+											"description": "possible modes: COMMENT_ONLY , VOTE_ONLY , COMMENT_AND_VOTE , DEACTIVATE"
+										}
+									]
+								},
+								"description": "Change the review availability of a particular product"
+							},
+							"response": []
+						},
+						{
+							"name": "set review mode",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/product/setReviewMode?productId=1&reviewMode=CUSTOMER_MODE",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"product",
+										"setReviewMode"
+									],
+									"query": [
+										{
+											"key": "productId",
+											"value": "1",
+											"description": "ID of the desired product"
+										},
+										{
+											"key": "reviewMode",
+											"value": "CUSTOMER_MODE",
+											"description": "possible modes: CUSTOMER_MODE , PUBLIC_MODE"
+										},
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								},
+								"description": "Change the review mode of a particular product"
+							},
+							"response": []
+						},
+						{
+							"name": "add comment for paid customers only",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/product/addCommentForPaidCustomersOnly?productId=2&value=true",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"product",
+										"addCommentForPaidCustomersOnly"
+									],
+									"query": [
+										{
+											"key": "productId",
+											"value": "2",
+											"description": "ID of the desired product"
+										},
+										{
+											"key": "value",
+											"value": "true",
+											"description": "possible modes: true or false"
+										}
+									]
+								},
+								"description": "Changing the ability to comment is allowed only for product buyers"
+							},
+							"response": []
+						},
+						{
+							"name": "get product showable",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/product/getProductShowable",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"product",
+										"getProductShowable"
+									]
+								},
+								"description": "Get the list of all the products whose display feature is active"
+							},
+							"response": []
+						},
+						{
+							"name": "get products commentable",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/product/getProductsCommentable",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"product",
+										"getProductsCommentable"
+									]
+								},
+								"description": "Get a list of all the products for which the comment feature is active"
+							},
+							"response": []
+						},
+						{
+							"name": "get products commentable and voteble",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/product/getProductsCommentableAndVotable",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"product",
+										"getProductsCommentableAndVotable"
+									]
+								},
+								"description": "Get a list of all the products for which commenting and voting are enabled"
+							},
+							"response": []
+						}
+					],
+					"description": "List end-points related to the product controller"
+				},
+				{
+					"name": "vote controller",
+					"item": [
+						{
+							"name": "average total rating",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "productId",
+											"value": "1",
+											"description": "ID of the desired product",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/api/vote/averageTotalRating",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"vote",
+										"averageTotalRating"
+									]
+								},
+								"description": "The average total of approved votes for a particular product"
+							},
+							"response": []
+						},
+						{
+							"name": "get unckecked votes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/vote/getUnCheckedVotes",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"vote",
+										"getUnCheckedVotes"
+									]
+								},
+								"description": "Get a list of unconfirmed votes"
+							},
+							"response": []
+						},
+						{
+							"name": "change approval status",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/vote/changeApprovalStatus?voteId=1&approvalStatus=true",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"vote",
+										"changeApprovalStatus"
+									],
+									"query": [
+										{
+											"key": "voteId",
+											"value": "1",
+											"description": "ID of the desired vote"
+										},
+										{
+											"key": "approvalStatus",
+											"value": "true",
+											"description": "Possible modes: true or false"
+										}
+									]
+								},
+								"description": "Change the approval status of a particular vote"
+							},
+							"response": []
+						}
+					],
+					"description": "List end-points related to the vote controller"
+				}
+			],
+			"description": "Implementation of a review service for products"
+		}
+	]
+}
